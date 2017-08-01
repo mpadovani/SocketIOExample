@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SocketIOManager.sharedInstance.socket.on("test597f948fda999f6b7d924ddb") { dataArray, ack in
+            print(dataArray)
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

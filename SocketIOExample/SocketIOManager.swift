@@ -11,14 +11,11 @@ import Foundation
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
-    var socket = SocketIOClient(socketURL: URL(string: "http://192.168.15.88:3000")!, config: [.log(false), .forcePolling(true)])
+    
+    var socket = SocketIOClient(socketURL: URL(string: "http://192.168.15.88:3000")!, config: [.log(false), .forcePolling(true), .connectParams(["api_key": "5e1652ec-bb3c-4602-b514-a46e088726eb"])])
     
     override init() {
         super.init()
-        
-        socket.on("test") { dataArray, ack in
-            print(dataArray)
-        }
     }
     
     func establishConnection() {
@@ -29,3 +26,4 @@ class SocketIOManager: NSObject {
         socket.disconnect()
     }
 }
+
